@@ -1,0 +1,71 @@
+﻿@model List<Employee>
+@{
+    int count = 1;
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Employee Table</h4>
+       <a class="btn btn-success" asp-action="Create" asp-controller="Team">Create</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Fullname
+                            </th>
+                            <th>
+                                Profession
+                            </th>
+                            <th>
+                                Mesagge
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+              @foreach (var item in Model)
+                        {
+                            <tr>
+                               <td >
+                                    @(count++)
+                                </td>
+                                <td>
+                                    <img src="~/uploads/employeeimg/@item.Image" />
+                                </td>
+                                <td>
+                                    @(item.Name+item.Surname)
+                                </td>
+                                <td>
+                                   @item.Profession.Name
+                                </td>
+                                <td>
+                                  @item.Mesagge
+                                </td>
+                                 <td>
+                                   <a class="btn btn-warning" asp-action="update" asp-controller="Team" asp-route-id="@item.Id"><i class="mdi mdi-pencil"></i></a>
+                              <a class="btn btn-danger" asp-action="delete" asp-controller="Team" asp-route-id="@item.Id"><i class="mdi mdi-delete"></i></a>
+
+
+                                    </td>
+                            </tr>
+                      
+
+                        }
+                    </tbody>
+                </table>
+                <div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

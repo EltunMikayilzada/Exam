@@ -1,0 +1,39 @@
+﻿@model Employee
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Employee form</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for=Name for="exampleInputUsername1">Name</label>
+                    <input asp-for="Name" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                  <div class="form-group">
+                    <label asp-for=Surname for="exampleInputUsername1">Surname</label>
+                    <input asp-for="Surname" class="form-control" id="exampleInputUsername1" placeholder="Surname">
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for=ProfessionId for="exampleInputUsername1">Profession</label>
+                    <select asp-for="ProfessionId" asp-items="new SelectList(ViewBag.Profession,nameof(Profession.Id),nameof(Profession.Name))">
+                        <option selected disabled>Select Profession</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for=Photo for="exampleInputUsername1">Photo</label>
+                    <input asp-for="Photo" class="form-control" id="exampleInputUsername1" placeholder="Photo">
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="Mesagge" for="exampleInputUsername1">Mesagge</label>
+                    <input asp-for="Mesagge" class="form-control" id="exampleInputUsername1" placeholder="Mesagge">
+                    <span asp-validation-for="Mesagge" class="text-danger"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
